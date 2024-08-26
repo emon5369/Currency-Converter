@@ -85,6 +85,13 @@ form input {
   width: auto;
   background-color: aliceblue;
 }
+.select-container select:hover{
+  cursor: pointer;
+}
+
+.swap-icon:hover{
+  color: blue;
+}
 
 .msg {
   margin: 1.5rem 0 1.5rem 0;
@@ -103,6 +110,10 @@ button {
   font-size: large;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+button:hover{
+  background-color: blue;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
