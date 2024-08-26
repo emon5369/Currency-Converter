@@ -1,5 +1,3 @@
-// const url = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json';
-
 const baseURL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies';
 
 const input= document.querySelector('.amount input')
@@ -8,6 +6,7 @@ const btn = document.querySelector("button");
 const fromCurr= document.querySelector(".from select")
 const toCurr= document.querySelector(".to select");
 const msg= document.querySelector(".msg");
+const swapIcon = document.querySelector(".swap-icon");
 
 // const getCurrecncy= async ()=>{
 //     console.log('getting data...');
@@ -16,8 +15,6 @@ const msg= document.querySelector(".msg");
 //     let data= await response.json();
 //     console.log(data['usd']);
 // }
-
-
 
 for(let select of dropdowns){
     for(key in countryList){
@@ -73,4 +70,15 @@ const updateExchangeRate= async ()=> {
     }
 }
 
-window.addEventListener('load', updateExchangeRate); //put event listeners and functions serially
+window.addEventListener('load', updateExchangeRate); 
+//put event listeners and functions serially
+
+const swapCurrencies = () => {
+    let temp = fromCurr.value;
+    fromCurr.value = toCurr.value;
+    toCurr.value = temp;
+    updateFlag(fromCurr);
+    updateFlag(toCurr);
+    updateExchangeRate();
+}
+swapIcon.addEventListener('click', swapCurrencies);
